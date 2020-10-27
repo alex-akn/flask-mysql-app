@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>New Article</h1>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form action={{ endpoint }} method="post">
+        <div class="form-group">
+            {{render_field(form.title, class="form-control")}}
+        </div>
+        <div class="form-group">
+            {{render_field(form.body, class="form-control", id="editor1")}}
+        </div>
+        
+        <p><input type="submit" value="Submit" class="btn btn-primary"></p>
+    </form>
+    <script src="//cdn.ckeditor.com/4.15.0/basic/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor1' );
+    </script>
+   
+{% endblock %}
